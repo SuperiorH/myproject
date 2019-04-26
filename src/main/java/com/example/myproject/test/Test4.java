@@ -1,17 +1,44 @@
 package com.example.myproject.test;
 
-import java.util.*;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.lang.reflect.Field;
+import java.util.Arrays;
+import java.util.List;
 
 public class Test4 {
+    private String name;
+    private Double price;
+    private List<String> students;
 
     public static void main(String[] args) {
-        Set<Integer> set = pick();
-        System.out.println(set);
+        Class clazz = Test4.class;
+        Field[] array = clazz.getDeclaredFields();
+        Arrays.stream(array).forEach((e) -> System.out.println(e.getName()));
+
+
 //        Random ran = new Random();
+//        List<Future<Integer>> list = new ArrayList<>();
+//        for (int i = 1; i < 10; i++) {
+//            FutureTask<Integer> ft = new FutureTask<>(() -> {
+//                int value = ran.nextInt(10);
+//                System.out.println("生成的值为:" + value);
+//                return value;
+//            });
+//            Thread thread = new Thread(ft);
+//            thread.start();
+//            list.add(ft);
+//        }
+//        AtomicInteger sum = new AtomicInteger();
+//        list.forEach((e) -> {
+//            try {
+//                sum.addAndGet(e.get());
+//            } catch (InterruptedException e1) {
+//                e1.printStackTrace();
+//            } catch (ExecutionException e1) {
+//                e1.printStackTrace();
+//            }
+//        });
+//        System.out.println(sum.get());
+
 //        ExecutorService es = Executors.newFixedThreadPool(10);
 //        List<Future<Integer>> list = new ArrayList<>();
 //        for (int i = 1; i <= 10; i++) {
@@ -36,20 +63,9 @@ public class Test4 {
 //        es.shutdown();
     }
 
-    /**
-     * 从1~20随机选出15个数字
-     */
-    private static Set<Integer> pick() {
-        Random random = new Random();
-        Set<Integer> set = new HashSet<>();
-        while (1 == 1) {
-            int value = random.nextInt(21);
-            set.add(value);
-            if (set.size() >= 15) {
-                break;
-            }
-        }
-        return set;
+    public void test() {
+        System.out.println(12345);
     }
+
 
 }
