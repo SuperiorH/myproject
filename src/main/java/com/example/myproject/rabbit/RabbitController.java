@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.Filter;
+import java.util.*;
 
 @RestController
 @RequestMapping("/rabbit")
@@ -37,8 +37,20 @@ public class RabbitController {
     }
 
     public static void main(String[] args) {
-        Class c1 = Filter.class;
-        System.out.println(c1.isInterface());
+        Map<String,Integer> map = new HashMap<>();
+        map.put("Java",1);
+        map.put("Js",2);
+        map.put("C#",3);
+        map.put("Android",4);
+        System.out.println(map);
+        map.remove("Java");
+        System.out.println(map);
     }
+
+    private static void sort(int[] array){
+
+    }
+
+
 
 }
